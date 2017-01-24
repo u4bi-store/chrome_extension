@@ -6,10 +6,11 @@
     "browsingData"
   ],
   "content_scripts": [
-  {
-    "css": ["popup.css"],
-    "js": ["popup.js"]
-  },
+    {
+      "css": ["popup.css"],
+      "js": ["popup.js"]
+    },
+  ],
   "browser_action": {
      "default_icon": "icon.png"
   },
