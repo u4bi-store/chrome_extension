@@ -2,10 +2,13 @@ var status = false;
 
 function paper() {
     fixIcon(true);
+    remove();
+}
 
-    setTimeout(function() {
-      fixIcon(false);
-    }, 200);
+function remove(){
+  chrome.browsingData.remove({"since":0}, {
+    "cache": true,
+  }, fixIcon(false));
 }
 
 function fixIcon(bool){
