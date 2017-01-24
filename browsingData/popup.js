@@ -36,10 +36,8 @@ PopupController.prototype = {
 
     setTimeout(function() { success.classList.add('visible'); }, 10);
     setTimeout(function() {
-      if (close === false)
-        success.classList.remove('visible');
-      else
-        window.close();
+      if (close === false) success.classList.remove('visible');
+      else window.close();
     }, 4000);
   },
   handleClick_: function () {

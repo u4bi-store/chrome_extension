@@ -1,0 +1,17 @@
+{
+  "name" : "browsingData 지우기",
+  "version" : "1.1",
+  "description" : "브라우저상 띄어진 browsingData 지우기",
+  "permissions": [
+    "browsingData"
+  ],
+  "content_scripts": [
+  {
+    "css": ["popup.css"],
+    "js": ["popup.js"]
+  },
+  "browser_action": {
+     "default_icon": "icon.png"
+  },
+  "manifest_version": 2
+}
