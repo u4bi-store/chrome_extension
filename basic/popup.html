@@ -10,18 +10,24 @@
     "default_popup": "popup.html"
   },
 
+   퍼미션 설정
+     activeTab 추가가 되어있음
+     활성화된 탭의 클릭에 대한 권한 닫힐 때까지 지속된다함
+     https://developer.chrome.com/extensions/activeTab
 -->
 <html>
   <head>
     <title>u4bi basic extension</title>
     <link rel="stylesheet" href="css/style.css"/>
-    <!-- <script src="js/popup.js"></script> -->
     <!-- 자바스크립트와 HTML은 별도의 파일이어야 한다고 함. 콘텐츠 보안규칙이라고 함.
-         https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
+         https://developer.chrome.com/extensions/contentSecurityPolicy -->
   </head>
   <body>
-    크롬 익스텐션 베이직
+    <div class="box">
+      <span>크롬 익스텐션 베이직</span>
+    </div>
+    
+    <script src="js/popup.js"></script>
   </body>
 </html>
 
