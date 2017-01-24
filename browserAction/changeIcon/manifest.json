@@ -1,0 +1,10 @@
+{
+  "name": "아이콘 체인지",
+  "description": "누를 시 아이콘 체인지함",
+  "version": "1.2",
+  "background": { "scripts": ["changeIcon.js"] },
+  "browser_action": {
+      "name": "아이콘을 체인지함"
+  },
+  "manifest_version": 2
+}
