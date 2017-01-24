@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Popup</title>
+    <title>browsingData 데이터지우기</title>
     <link href="popup.css" rel="stylesheet">
     <script src="popup.js"></script>
   </head>
   <body>
-    <h1>BrowsingData API Sample</h1>
+    <h1>browsingData 데이터지우기</h1>
     <div role="main">
       <form>
-        <label for="timeframe">Remove all browsing data from:</label>
+        <label for="timeframe">지우고 싶은 날짜의 데이터 지우기</label>
         <select id="timeframe">
-          <option value="hour">the past hour</option>
-          <option value="day">the past day</option>
-          <option value="week">the past week</option>
-          <option value="4weeks">the past four weeks</option>
-          <option value="forever">the beginning of time</option>
+          <option value="hour">한시간전</option>
+          <option value="day">하루전</option>
+          <option value="week">일주전</option>
+          <option value="4weeks">한달전</option>
+          <option value="forever">모든데이터</option>
         </select>
-        <button id="button">OBLITERATE!</button>
+        <button id="button">지우기</button>
       </form>
     </div>
   </body>

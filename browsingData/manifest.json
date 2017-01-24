@@ -1,7 +1,7 @@
 {
-  "name" : "BrowsingData API: Basics",
+  "name" : "browsingData 지우기",
   "version" : "1.1",
-  "description" : "A trivial usage example.",
+  "description" : "브라우저상 띄어진 browsingData 지우기",
   "permissions": [
     "browsingData"
   ],

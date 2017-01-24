@@ -1,20 +1,3 @@
-// Copyright (c) 2012 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-/**
- * This class wraps the popup's form, and performs the proper clearing of data
- * based on the user's selections. It depends on the form containing a single
- * select element with an id of 'timeframe', and a single button with an id of
- * 'button'. When you write actual code you should probably be a little more
- * accepting of variance, but this is just a sample app. :)
- *
- * Most of this is boilerplate binding the controller to the UI. The bits that
- * specifically will be useful when using the BrowsingData API are contained in
- * `parseMilliseconds_`, `handleCallback_`, and `handleClick_`.
- *
- * @constructor
- */
 var PopupController = function () {
   this.button_ = document.getElementById('button');
   this.timeframe_ = document.getElementById('timeframe');
@@ -22,42 +5,12 @@ var PopupController = function () {
 };
 
 PopupController.prototype = {
-  /**
-   * A cached reference to the button element.
-   *
-   * @type {Element}
-   * @private
-   */
-  button_: null,
-
-  /**
-   * A cached reference to the select element.
-   *
-   * @type {Element}
-   * @private
-   */
-  timeframe_: null,
-
-  /**
-   * Adds event listeners to the button in order to capture a user's click, and
-   * perform some action in response.
-   *
-   * @private
-   */
-  addListeners_: function () {
+  button_: null, /* 버튼참조*/
+  timeframe_: null, /* 셀렉트 참조*/
+  addListeners_: function () { /* 리스너 참조*/
     this.button_.addEventListener('click', this.handleClick_.bind(this));
   },
-
-  /**
-   * Given a string, return milliseconds since epoch. If the string isn't
-   * valid, returns undefined.
-   *
-   * @param {string} timeframe One of 'hour', 'day', 'week', '4weeks', or
-   *     'forever'.
-   * @returns {number} Milliseconds since epoch.
-   * @private
-   */
-  parseMilliseconds_: function (timeframe) {
+  parseMilliseconds_: function (timeframe) { /* 문자열 체크 값변환 */
     var now = new Date().getTime();
     var milliseconds = {
       'hour': 60 * 60 * 1000,
@@ -74,14 +27,7 @@ PopupController.prototype = {
 
     return null;
   },
-
-  /**
-   * Handle a success/failure callback from the `browsingData` API methods,
-   * updating the UI appropriately.
-   *
-   * @private
-   */
-  handleCallback_: function () {
+  handleCallback_: function () { /* browsingData API 콜백 처리*/
     var success = document.createElement('div');
     success.classList.add('overlay');
     success.setAttribute('role', 'alert');
@@ -96,15 +42,9 @@ PopupController.prototype = {
         window.close();
     }, 4000);
   },
-
-  /**
-   * When a user clicks the button, this method is called: it reads the current
-   * state of `timeframe_` in order to pull a timeframe, then calls the clearing
-   * method with appropriate arguments.
-   *
-   * @private
-   */
   handleClick_: function () {
+    /* 버튼 클릭시 호출
+       timeframe_ 키에 적혀진 value를 가져와 데이터를 지움*/
     var removal_start = this.parseMilliseconds_(this.timeframe_.value);
     if (removal_start !== undefined) {
       this.button_.setAttribute('disabled', 'disabled');
