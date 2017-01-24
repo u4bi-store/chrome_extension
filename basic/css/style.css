@@ -1,0 +1,7 @@
+#status {
+  /* 화면으로부터 너무 넓어지는 텍스트를 방지하기 위한 css 처리*/
+  white-space: pre;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 400px;
+}

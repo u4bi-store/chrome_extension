@@ -1,0 +1,29 @@
+<!doctype html>
+<!--
+  익스텐션 버튼을 누르면 이 페이지가 표시됨
+  
+  매니페스트에 등록된 browser_action 필드를 보면
+  default_popup키가 있는데 그 값은 popup.html
+  즉 메인으로 popup.html을 띄운다는거임.
+
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+
+-->
+<html>
+  <head>
+    <title>u4bi basic extension</title>
+    <link rel="stylesheet" href="css/button_view.css"/>
+    
+    <script src="popup.js"></script>
+    <!-- 자바스크립트와 HTML은 별도의 파일이어야 한다고 함. 콘텐츠 보안규칙이라고 함.
+         https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+  </head>
+  <body>
+    <div id="status"></div>
+    <img id="image-result" hidden>
+  </body>
+</html>
+
