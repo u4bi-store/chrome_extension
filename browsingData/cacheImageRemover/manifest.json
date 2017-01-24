@@ -9,7 +9,7 @@
     {
       "css": ["popup.css"],
       "js": ["popup.js"]
-    },
+    }
   ],
   "browser_action": {
      "default_icon": "icon.png"
