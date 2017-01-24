@@ -1,0 +1,16 @@
+{
+  "name": "페이지 레드",
+  "description": "페이지 색상을 레드로 바꿈",
+  "version": "2.0",
+  "permissions": [
+    "activeTab"
+  ],
+  "background": {
+    "scripts": ["red.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "페이지 색상을 레드로 바꿈"
+  },
+  "manifest_version": 2
+}
