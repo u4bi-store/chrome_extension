@@ -31,7 +31,7 @@ PopupController.prototype = {
     var success = document.createElement('div');
     success.classList.add('overlay');
     success.setAttribute('role', 'alert');
-    success.textContent = 'Data has been cleared.';
+    success.textContent = '브라우저내 데이터가 모두 삭제되었습니다.';
     document.body.appendChild(success);
 
     setTimeout(function() { success.classList.add('visible'); }, 10);
