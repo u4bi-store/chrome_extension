@@ -1,9 +1,16 @@
-var flag = false;
+var status = false;
 
 function paper() {
+    fixIcon(true);
 
-  chrome.browserAction.setIcon({path:"icon-cache_"+flag+".png"});
-  flag = !flag;
+    setTimeout(function() {
+      fixIcon(false);
+    }, 200);
+}
+
+function fixIcon(bool){
+  status = bool;
+  chrome.browserAction.setIcon({path:"icon-cache_"+status+".png"});
 }
 
 chrome.browserAction.onClicked.addListener(paper);
