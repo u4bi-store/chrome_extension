@@ -1,0 +1,15 @@
+{
+  "name": "현재 페이지 프린트",
+  "description": "현재 뜨고 있는 브라우저 페이지 프린트함",
+  "version": "1.1",
+  "background": {
+    "scripts": ["print.js"]
+  },
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+  "browser_action": {
+      "default_title": "현재 페이지 프린트함"
+  },
+  "manifest_version": 2
+}
