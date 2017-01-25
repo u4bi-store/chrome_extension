@@ -1,7 +1,10 @@
+var data = [];
+var dataArray = [];
+
 document.addEventListener('DOMContentLoaded', function () {
   console.log('dom conn init');
 
-  var data =[
+  data =[
     {name: "appcache",    type: true},
     {name: "cache",       type: true},
     {name: "cookies",     type: true},
@@ -15,8 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
     {name: "passwords",   type: true},
     {name: "webSQL",      type: true}
   ];
-  
-  var dataArray = [];
   
   var box = document.getElementById("box");
   box.innerHTML='web-data-paper';
@@ -35,4 +36,18 @@ document.addEventListener('DOMContentLoaded', function () {
       label.appendChild(dataArray[i]);
 
   }
+  
+  var btn = document.createElement('button'); 
+  btn.innerHTML='all checked remove';
+  btn.onclick = function(){allRemoved()};
+  box.appendChild(btn);
+
 });
+
+function allRemoved(){
+  console.log('all removed');
+  for(var i=0; i<data.length; i++){
+    data[i].type = false;
+    dataArray[i].checked = data[i].type;
+  }
+}
