@@ -2,8 +2,8 @@
   "name": "cache paper.v.1.0",
   "description": "브라우저상 남아있는 캐시 이미지 또는 파일을 모두 삭제합니다.",
   "version": "1.0",
-  "background": { "scripts": ["paper.js"]},
-  "permissions": ["browsingData"],
+  "background": { "page": "paper.html"},
+  "permissions": ["browsingData","background"],
   "browser_action": {},
   "commands": {
     "_execute_browser_action": {

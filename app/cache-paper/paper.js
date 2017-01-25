@@ -3,6 +3,10 @@ var status = false;
 function paper() {
     fixIcon(true);
     remove();
+
+    var success = document.createElement('div');
+    document.body.appendChild(success);
+    alert(success);
 }
 
 function remove(){
