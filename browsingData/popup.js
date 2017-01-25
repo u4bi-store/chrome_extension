@@ -48,19 +48,7 @@ PopupController.prototype = {
       this.button_.setAttribute('disabled', 'disabled');
       this.button_.innerText = 'Clearing...';
       chrome.browsingData.remove({ "since" : removal_start }, {
-        "appcache": true,
-        "cache": true,
-        "cookies": true,
-        "downloads": true,
-        "fileSystems": true,
-        "formData": true,
-        "history": true,
-        "indexedDB": true,
-        "localStorage": true,
-        "serverBoundCertificates": true,
-        "pluginData": true,
-        "passwords": true,
-        "webSQL": true
+        "cache": true
       }, this.handleCallback_.bind(this));
     }
   }

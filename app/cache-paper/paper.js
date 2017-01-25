@@ -1,23 +1,20 @@
-var status = false;
+var stat = false;
 
 function paper() {
-    fixIcon(true);
+    if(stat)return;
+    flag();
     remove();
-
-    var success = document.createElement('div');
-    document.body.appendChild(success);
-    alert(success);
 }
 
 function remove(){
   chrome.browsingData.remove({"since":0}, {
     "cache": true,
-  }, fixIcon(false));
+  }, flag());
 }
 
-function fixIcon(bool){
-  status = bool;
-  chrome.browserAction.setIcon({path:"icon-cache_"+status+".png"});
+function flag(){
+    stat = !stat;
+    chrome.browserAction.setIcon({path:"icon-cache_"+stat+".png"});
 }
 
 chrome.browserAction.onClicked.addListener(paper);
