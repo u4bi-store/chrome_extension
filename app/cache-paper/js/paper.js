@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
       dataArray[i].onclick=function(e){
         save(e.target.attributes[1].nodeValue, e.target.checked);
       };
-      dataArray[i].checked = data[i].type;
+      dataArray[i].checked = data[i].value;
 
       label.appendChild(dataArray[i]);
       var removed=document.getElementById('removed');
@@ -63,4 +63,6 @@ function fixCheck(bool){
 
 function save(key, value){
   console.log(key+' '+value);
+  localStorage.setItem(key,value);
+  console.log(key+' saved : '+localStorage[key]);
 }
