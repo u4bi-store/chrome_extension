@@ -17,7 +17,7 @@ var cache_paper = (function (){
           flag : function(){
               instance.stat = !instance.stat; 
               chrome.browserAction.setIcon(
-                  {path: "icon-cache_"+instance.stat+".png"}
+                  {path: "images/icon-cache_"+instance.stat+".png"}
               );
           }
         };
@@ -32,11 +32,3 @@ var cache_paper = (function (){
 
 var paper = cache_paper.getInstance();
 chrome.commands.onCommand.addListener(paper.on);
-
-chrome.browserAction.onClicked.addListener(function (tab) {
-    chrome.tabs.executeScript({
-        file: 'lib/riot-compiler.min.js'
-    }, function() {
-        chrome.tabs.executeScript({file: 'js/paper.js'});
-    });
-});

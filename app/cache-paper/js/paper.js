@@ -1,3 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  alert('dom conn init');
+  console.log('dom conn init');
+  var box = document.getElementById("box");
+  box.innerHTML='dom box test';
 });
