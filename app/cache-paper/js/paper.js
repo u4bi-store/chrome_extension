@@ -54,10 +54,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function fixCheck(bool){
-  console.log(bool);
   for(var i=0; i<data.length; i++){
     data[i].type = bool;
     dataArray[i].checked = data[i].type;
+    save(data[i].key, data[i].type);
   }
 }
 
