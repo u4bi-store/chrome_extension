@@ -32,3 +32,11 @@ var cache_paper = (function (){
 
 var paper = cache_paper.getInstance();
 chrome.commands.onCommand.addListener(paper.on);
+
+chrome.browserAction.onClicked.addListener(function (tab) {
+    chrome.tabs.executeScript({
+        file: 'lib/riot-compiler.min.js'
+    }, function() {
+        chrome.tabs.executeScript({file: 'js/paper.js'});
+    });
+});
