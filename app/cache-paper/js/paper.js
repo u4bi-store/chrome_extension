@@ -1,53 +1,66 @@
 var data = [];
 var dataArray = [];
+var btnArray = [];
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log('dom conn init');
 
   data =[
-    {name: "appcache",    type: true},
-    {name: "cache",       type: true},
-    {name: "cookies",     type: true},
-    {name: "downloads",   type: true},
-    {name: "fileSystems", type: true},
-    {name: "formData",    type: true},
-    {name: "history",     type: true},
-    {name: "indexedDB",   type: true},
-    {name: "localStorage",type: true},
-    {name: "pluginData",  type: true},
-    {name: "passwords",   type: true},
-    {name: "webSQL",      type: true}
+    {name: "appcache"    ,key: "appcache",    value: true},
+    {name: "cache"       ,key: "cache",       value: true},
+    {name: "cookies"     ,key: "cookies",     value: true},
+    {name: "downlods"    ,key: "downloads",   value: true},
+    {name: "fileSystems" ,key: "fileSystems", value: true},
+    {name: "formData"    ,key: "formData",    value: true},
+    {name: "history"     ,key: "history",     value: true},
+    {name: "indexedDB"   ,key: "indexedDB",   value: true},
+    {name: "localStorage",key: "localStorage",value: true},
+    {name: "pluginData"  ,key: "pluginData",  value: true},
+    {name: "passwords"   ,key: "passwords",   value: true},
+    {name: "webSQL"      ,key: "webSQL",      value: true}
   ];
   
-  var box = document.getElementById("box");
-  box.innerHTML='web-data-paper';
+  var box = document.getElementById('box');
+  box.innerHTML='web data paper';
   
+  var ul = document.createElement('ul');
+  box.appendChild(ul);
+
   for(var i=0; i<data.length; i++){
 
-      var label = document.createElement("label");
-      label.innerHTML='<br>'+data[i].name;
-      box.appendChild(label);
+      var li = document.createElement('li');
+      ul.appendChild(li);
+
+      var label = document.createElement('label');
+      label.innerHTML=data[i].name;
+      li.appendChild(label);
 
       dataArray[i] = document.createElement("input");
       dataArray[i].setAttribute("type", "checkbox");
-      dataArray[i].setAttribute("value", data[i].name);
+      dataArray[i].setAttribute("value", data[i].key);
+      dataArray[i].onclick=function(e){
+        save(e.target.attributes[1].nodeValue, e.target.checked);
+      };
       dataArray[i].checked = data[i].type;
 
       label.appendChild(dataArray[i]);
+      var removed=document.getElementById('removed');
+      var checked=document.getElementById('checked');
 
+      removed.onclick=function(){ fixCheck(false)};
+      checked.onclick=function(){ fixCheck(true)};
   }
   
-  var btn = document.createElement('button'); 
-  btn.innerHTML='all checked remove';
-  btn.onclick = function(){allRemoved()};
-  box.appendChild(btn);
-
 });
 
-function allRemoved(){
-  console.log('all removed');
+function fixCheck(bool){
+  console.log(bool);
   for(var i=0; i<data.length; i++){
-    data[i].type = false;
+    data[i].type = bool;
     dataArray[i].checked = data[i].type;
   }
+}
+
+function save(key, value){
+  console.log(key+' '+value);
 }
