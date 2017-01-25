@@ -3,7 +3,7 @@ var cache_paper = (function (){
 
     function init(){
         return{
-          stat: false,
+          stat : false,
           on: function(){
              instance.remove();
              instance.flag();
@@ -31,5 +31,4 @@ var cache_paper = (function (){
 })();
 
 var paper = cache_paper.getInstance();
-
-chrome.browserAction.onClicked.addListener(paper.on);
+chrome.commands.onCommand.addListener(paper.on);

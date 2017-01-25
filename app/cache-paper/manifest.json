@@ -4,13 +4,14 @@
   "version": "1.0",
   "background": { "scripts": ["paper.js"]},
   "permissions": ["browsingData"],
-  "browser_action": {"default_icon":"icon-cache_false.png"},
+  "browser_action": {"default_icon":"icon-cache_false.png", "default_popup":"paper.html"},
   "commands": {
-    "_execute_browser_action": {
+    "toggle-feature": {
       "suggested_key": {
         "default": "Ctrl+Shift+M",
         "mac": "MacCtrl+Shift+M"
-      }
+      },
+      "description": "remove data key"
     }
   },
   "manifest_version": 2
