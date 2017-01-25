@@ -1,25 +1,30 @@
 var cache_paper = (function (){
     var instance;
-    var stat = false;
+
     function init(){
         return{
-          stat: stat,
+          stat: false,
           on: function(){
-            alert('on');
+             instance.remove();
+             instance.flag();
           },
           remove : function(){
-            alert('remove');
+              chrome.browsingData.remove(
+                  {"since": 0},
+                  {"cache": true}
+              , instance.flag);
           },
           flag : function(){
-              alert('flag');
+              instance.stat = !instance.stat; 
+              chrome.browserAction.setIcon(
+                  {path: "icon-cache_"+instance.stat+".png"}
+              );
           }
         };
     }
     return {
       getInstance: function(){
-        if(!instance){
-          instance = init();
-        }
+        if(!instance)instance = init();
         return instance;
       }
     }
@@ -27,9 +32,4 @@ var cache_paper = (function (){
 
 var paper = cache_paper.getInstance();
 
-chrome.browserAction.onClicked.addListener(function(){
-    alert('stat : '+ paper.stat);
-    paper.on();
-    paper.remove();
-    paper.flag();
-});
+chrome.browserAction.onClicked.addListener(paper.on);

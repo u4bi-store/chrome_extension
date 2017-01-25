@@ -4,7 +4,7 @@
   "version": "1.0",
   "background": { "scripts": ["paper.js"]},
   "permissions": ["browsingData"],
-  "browser_action": {},
+  "browser_action": {"default_icon":"icon-cache_false.png"},
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
